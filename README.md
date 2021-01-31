@@ -1,5 +1,9 @@
 # machine-learning-challenge
 
+When comparing the different results of the models below, it was found that the [randomForest](https://github.com/meielerol/machine-learning-challenge/blob/main/model_randomForest.ipynb) model had the highest accuracy at 0.91, [model_1](https://github.com/meielerol/machine-learning-challenge/blob/main/model_1.ipynb) with 0.86, and [model_2](https://github.com/meielerol/machine-learning-challenge/blob/main/model_2.ipynb) following with 0.82.
+
+The [model_2] predicted the most `CANIDATE` cases correctly, the [randomForest] model predicted the most `CONFIRMED` cases correctly, and all three models predicted 99% corectly for `FALSE POSITIVE` cases. The [randomForest] model caught the most `CANIDATE` positive cases correctly, the [model_2] caught the most `CONFIRMED` positive cases correctly, and all three models caught 100% of the `FALSE POSITIVE` positive cases correctly.
+
 ## Random Forest Model
 
 Ran this model a few different times with different estimator sets [200, 100, 50, 25, 15]. The training and testing scores decreased as the estimators were decreased but all test scores stayed above 99% and all test scores stayed above 89%. The scores and classification report displayed are for 200 estimators since the model seemed to perform better with more `n_estimators`.
@@ -8,7 +12,7 @@ Ran this model a few different times with different estimator sets [200, 100, 50
 
 All columns used sans `koi_tce_plnt_num` since that was a planet number designator.
 `koi_disposition` used as the y value in each of the models.
-`x` values were scaled and `y` values were encoded as follows: `[0: 'CANIDATE', 1: 'CONDIRMED', 2: 'FALSE POSITIVE']`
+`x` values were scaled and `y` values were encoded as follows: `[0: 'CANIDATE', 1: 'CONFIRMED', 2: 'FALSE POSITIVE']`
 
 ### Tuning the Model
 
@@ -48,7 +52,7 @@ Classification Report:
 
 All columns used sans `koi_tce_plnt_num` since that was a planet number designator.
 `koi_disposition` used as the y value in each of the models.
-`x` values were scaled and `y` values were encoded as follows: `[0: 'CANIDATE', 1: 'CONDIRMED', 2: 'FALSE POSITIVE']`
+`x` values were scaled and `y` values were encoded as follows: `[0: 'CANIDATE', 1: 'CONFIRMED', 2: 'FALSE POSITIVE']`
 
 ### Tuning the Model
 
@@ -75,7 +79,7 @@ Classification Report:
 
 Most columns used sans `koi_tce_plnt_num` since that was a planet number designator and columns `koi_srad`, `koi_srad_err1`, `koi_srad_err2`, `koi_slogg`, `koi_slogg_err1`, `koi_slogg_err2`, `koi_steff`, `koi_slogg_err1`,`koi_slogg_err2`.
 `koi_disposition` used as the y value in each of the models.
-`x` values were scaled and `y` values were encoded as follows: `[0: 'CANIDATE', 1: 'CONDIRMED', 2: 'FALSE POSITIVE']`
+`x` values were scaled and `y` values were encoded as follows: `[0: 'CANIDATE', 1: 'CONFIRMED', 2: 'FALSE POSITIVE']`
 
 ### Tuning the Model
 
@@ -91,7 +95,7 @@ Testing Data Score: 0.8180778032036613
 
 Grid Search Best Parameters: {'C': 10, 'gamma': 0.001}
 
-Grid Search Best Score: 0.0.8580933131517476
+Grid Search Best Score: 0.8580933131517476
 
 Classification Report: 
 <p align="center"><img src="https://github.com/meielerol/machine-learning-challenge/blob/main/Images/classificationReport-model_2.png" alt="model_2 Classification Report"></p>
