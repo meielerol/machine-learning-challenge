@@ -32,15 +32,66 @@ Least important features with < 1%:
 ### Scores and Classification Report
 
 Training Data Score: 1.0
+
 Testing Data Score: 0.9118993135011442
+
 Grid Search Best Parameters: 
+
 Grid Search Best Score: 0.8910912974188431
+
 Classification Report: 
 <p align="center"><img src="https://github.com/meielerol/machine-learning-challenge/blob/main/Images/classificationReport-model_randomForest-200.png" alt="Random Forest Classification Report"></p>
 
 ## Model_1
 
+### Preprocessing the Data
 
+All columns used sans `koi_tce_plnt_num` since that was a planet number designator.
+`koi_disposition` used as the y value in each of the models.
+`x` values were scaled and `y` values were encoded as follows: `[0: 'CANIDATE', 1: 'CONDIRMED', 2: 'FALSE POSITIVE']`
+
+### Tuning the Model
+
+This [model_1](https://github.com/meielerol/machine-learning-challenge/blob/main/model_1.ipynb) was run without removing any more additional columns than what was ran in the [randomForest](https://github.com/meielerol/machine-learning-challenge/blob/main/model_randomForest.ipynb) model so that a baseline could be created for comparing to [model_2](https://github.com/meielerol/machine-learning-challenge/blob/main/model_2.ipynb) when less features would be considered.
+
+A `linear` support vector machine (SVM) classifier was used in creating [model_1] and a grid parameter of `{'C':[1,5,10], 'gamma':[0.001,0.001,0.01]}` was used.
+
+### Scores and Classification Report
+
+Training Data Score: 0.8371161548731643
+
+Testing Data Score: 0.8564073226544623
+
+Grid Search Best Parameters: {'C': 10, 'gamma': 0.001}
+
+Grid Search Best Score: 0.8651509252723424
+
+Classification Report: 
+<p align="center"><img src="https://github.com/meielerol/machine-learning-challenge/blob/main/Images/classificationReport-model_1.png" alt="model_1 Classification Report"></p>
 
 ## Model_2
 
+### Preprocessing the Data
+
+Most columns used sans `koi_tce_plnt_num` since that was a planet number designator and columns `koi_srad`, `koi_srad_err1`, `koi_srad_err2`, `koi_slogg`, `koi_slogg_err1`, `koi_slogg_err2`, `koi_steff`, `koi_slogg_err1`,`koi_slogg_err2`.
+`koi_disposition` used as the y value in each of the models.
+`x` values were scaled and `y` values were encoded as follows: `[0: 'CANIDATE', 1: 'CONDIRMED', 2: 'FALSE POSITIVE']`
+
+### Tuning the Model
+
+This [model_2](https://github.com/meielerol/machine-learning-challenge/blob/main/model_2.ipynb) was run with removing the least significant features + their error values found by the [randomForest](https://github.com/meielerol/machine-learning-challenge/blob/main/model_randomForest.ipynb) model so that the results could be compared to [model_1](https://github.com/meielerol/machine-learning-challenge/blob/main/model_1.ipynb) and see which one performed better.
+
+A `linear` support vector machine (SVM) classifier was used in creating [model_2] and a grid parameter of `{'C':[1,5,10], 'gamma':[0.001,0.001,0.01]}` was used.
+
+### Scores and Classification Report
+
+Training Data Score: 0.808697310699981
+
+Testing Data Score: 0.8180778032036613
+
+Grid Search Best Parameters: {'C': 10, 'gamma': 0.001}
+
+Grid Search Best Score: 0.0.8580933131517476
+
+Classification Report: 
+<p align="center"><img src="https://github.com/meielerol/machine-learning-challenge/blob/main/Images/classificationReport-model_2.png" alt="model_2 Classification Report"></p>
